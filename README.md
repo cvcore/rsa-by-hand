@@ -7,20 +7,20 @@ This repository implements the RSA algorithm in Go, demonstrating the steps of e
 Private key generation can be done using OpenSSL. The following command generates a 2048-bit RSA private key and saves it to `key/private_key.pem`:
 
 ```bash
-openssl genpkey -algorithm RSA -out key/private_key.pem -pkeyopt rsa_keygen_bits:2048
+openssl genpkey -algorithm RSA -out data/private_key.pem -pkeyopt rsa_keygen_bits:2048
 ```
 
 Extract the public key from the private key using:
 
 ```bash
-openssl rsa -in key/private_key.pem -pubout -out key/public_key.pem
+openssl rsa -in data/private_key.pem -pubout -out data/public_key.pem
 ```
 
 Now, you can inspect the keys:
 
 ```bash
-openssl pkey -in private_key.pem -text -noout
-openssl pkey -pubin -in public_key.pem -text -noout
+openssl pkey -in data/private_key.pem -text -noout
+openssl pkey -pubin -in data/public_key.pem -text -noout
 ```
 
 The private key should contain the following fields:
